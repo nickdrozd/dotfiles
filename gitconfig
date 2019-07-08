@@ -23,17 +23,19 @@ rebase = true
 	cf = commit --fixup
 
 	ch = checkout
-	ch- = checkout --
-	chb = checkout -b
+	discard = checkout --
+	new-branch = checkout -b
 
-	br = branch
-	bra = branch -a
-	brd = branch -d
-	brD = branch -D
-	brm = branch -m
+	branches = branch -a
+	delete-branch = branch -D
+	rename-branch = branch -m
 
-	addu = add -u
-	addp = add -p
+	add-all = add -u
+	add-everything = add -A
+	patch = add -p
+
+	unstage = reset HEAD
+	staged = diff --cached
 
 	chrp = cherry-pick
 
