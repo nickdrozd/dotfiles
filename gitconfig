@@ -7,6 +7,9 @@
 	autosquash = true
 	autostash = true
 
+[pull]
+rebase = true
+
 [alias]
 	alias = config --get-regexp ^alias
 
