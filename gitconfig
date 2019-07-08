@@ -19,7 +19,7 @@ rebase = true
 
 	st = status
 
-	cm = commit
+	cm = commit -m
 	cf = commit --fixup
 
 	ch = checkout
