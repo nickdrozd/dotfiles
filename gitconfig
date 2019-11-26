@@ -6,6 +6,7 @@
 	editor = vim
 	hooksPath = ~/git_hooks
 	excludesfile = ~/.gitignore-global
+	pager = cat
 
 [rebase]
 	autosquash = true
