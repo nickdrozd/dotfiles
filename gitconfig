@@ -8,7 +8,7 @@
 	autostash = true
 
 [pull]
-rebase = true
+	rebase = true
 
 [alias]
 	alias = config --get-regexp ^alias
@@ -42,22 +42,22 @@ rebase = true
 	# for instance, `git gethash :/keyword` -> ae7893
 	gethash = rev-parse --short --verify
 
-    # list the files altered in the commit, eg `git files HEAD~2`
+	# list the files altered in the commit, eg `git files HEAD~2`
 	files = "!f() { git diff-tree --no-commit-id --name-only -r $(git rev-parse --short --verify "$1"); }; f"
 
 	rb = rebase
 	rbcont = rebase --continue
 	rbabort = rebase --abort
 
-    # rebase the most recent n commits
-    # (this requires manual counting, which isn't great)
+	# rebase the most recent n commits
+	# (this requires manual counting, which isn't great)
 	fix = "!f() { git rebase -i HEAD~"$1"; }; f"
 
 	rbmaster = "!f() { echo "fetching upstream/master..." &&  git fetch upstream master &&  echo "rebasing on upstream/master..." && git rebase upstream/master; }; f"
 
-    # pull PR #n and get into its branch
-    # usage: `git pr pr-number branch-name`
+	# pull PR #n and get into its branch
+	# usage: `git pr pr-number branch-name`
 	pr = "!f() { git fetch upstream pull/"$1"/head:"$2" && git checkout "$2"; }; f"
 
-    # echo the length of the most recent commit's commit message
+	# echo the length of the most recent commit's commit message
 	msglen = "!f() { msg=$(git log -n 1 --pretty=format:%s); echo "$msg -- $(echo $msg | wc -c)"; }; f"
