@@ -48,7 +48,7 @@
 	gethash = rev-parse --short --verify
 
 	# list the files altered in the commit, eg `git files HEAD~2`
-	files = "!f() { git diff-tree --no-commit-id --name-only -r $(git rev-parse --short --verify "$1"); }; f"
+	files = "!f() { git diff-tree --no-commit-id --name-only -r $(git gethash "$1"); }; f"
 
 	rb = rebase
 	rbcont = rebase --continue
@@ -64,5 +64,7 @@
 	# usage: `git pr pr-number branch-name`
 	pr = "!f() { git fetch upstream pull/"$1"/head:"$2" && git checkout "$2"; }; f"
 
+	headmsg = log -n 1 --pretty=format:%s
+
 	# echo the length of the most recent commit's commit message
-	msglen = "!f() { msg=$(git log -n 1 --pretty=format:%s); echo "$msg -- $(echo $msg | wc -c)"; }; f"
+	msglen = "!f() { msg=$(git headmsg); echo "$msg -- $(echo $msg | wc -c)"; }; f"
