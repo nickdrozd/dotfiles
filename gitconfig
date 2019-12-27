@@ -17,7 +17,7 @@
 	rebase = true
 
 [alias]
-	alias = config --get-regexp ^alias
+	alias = "!f() { git config --get-regexp '^alias.*' | sed 's/^alias\.//' | sed 's/[ ]/ Q /' | sort | column -s Q -t }; f"
 
 	remotes = remote -v
 
