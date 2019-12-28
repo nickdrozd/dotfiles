@@ -69,3 +69,5 @@
 
 	# echo the length of the most recent commit's commit message
 	msglen = "!f() { msg=$(git headmsg); echo "$msg -- $(echo $msg | wc -c)"; }; f"
+
+	authors = shortlog -ns
