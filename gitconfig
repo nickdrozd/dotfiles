@@ -59,7 +59,7 @@
 	# (this requires manual counting, which isn't great)
 	fix = "!f() { git rebase -i HEAD~"$1"; }; f"
 
-	rbmaster = "!f() { echo "fetching upstream/master..." &&  git fetch upstream master &&  echo "rebasing on upstream/master..." && git rebase upstream/master; }; f"
+	rbmaster = ! git fetch upstream master && git rebase upstream/master
 
 	# pull PR #n and get into its branch
 	# usage: `git pr pr-number branch-name`
